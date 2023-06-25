@@ -1,0 +1,31 @@
+<mat-toolbar class="toolbar">    
+    <button [routerLink]="['/home']">
+      <span class="toolbar-title">unbeleafable</span>
+    </button>
+    <span class="toolbar-spacer"></span>    
+    <button *ngIf="User" aria-label="Login" [matMenuTriggerFor]="login" >
+      <mat-icon class="toolbar-username-icon">person</mat-icon>
+      <span class="toolbar-username-text">{{User?.UserName}}</span>
+    </button>
+    <mat-menu #login="matMenu">
+      <button mat-menu-item (click)="Logout()">
+        <mat-icon>person</mat-icon>
+        <span>Sign off</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>       
+    </mat-menu>
+    
+    <button *ngIf="!User" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/login']">
+        <mat-icon>person</mat-icon>
+        <span>Sign in</span>
+      </button>
+    </mat-menu>
+
+</mat-toolbar>

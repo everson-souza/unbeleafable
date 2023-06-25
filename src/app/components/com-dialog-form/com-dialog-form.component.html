@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>My plants</h1>
+<div mat-dialog-content>
+  <form class="form">
+    <p>What's your newest plant?</p>
+    <mat-form-field class="form-field">
+      <mat-label>Plant name</mat-label>
+      <input matInput [(ngModel)]="data.plant" name="plant" cdkFocusInitial>    
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Image URL</mat-label>
+      <input matInput [(ngModel)]="data.img" name="img" cdkFocusInitial>    
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. Loves direct sunlight..." [(ngModel)]="data.description" name="description"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="confirm()">OK</button>
+</div>
